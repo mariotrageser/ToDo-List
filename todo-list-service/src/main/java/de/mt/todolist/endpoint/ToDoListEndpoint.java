@@ -8,7 +8,7 @@ import javax.ws.rs.Produces;
 import java.util.Collections;
 import java.util.List;
 
-@Path("/todo-list")
+@Path("/")
 @Consumes({ "application/json" })
 @Produces({ "application/json" })
 public class ToDoListEndpoint {
