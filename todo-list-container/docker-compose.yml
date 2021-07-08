@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  todo-list-frontend:
+    build: ../todo-list-frontend
+    links:
+      - todo-list-service
+    ports:
+      - "80:80"
+  todo-list-service:
+    build: ../todo-list-service
+    environment:
+      - MYSQL_VERSION
+      - TODO_LIST_DB_USER
+      - TODO_LIST_DB_PASSWORD
+      - TODO_LIST_DB
+    links:
+      - todo-list-db
+    ports:
+    - "8080:8080"
+    - "9990:9990"
+  todo-list-db:
+    image: "mysql:${MYSQL_VERSION}"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${TODO_LIST_DB_ROOT_PASSWORD}
+      - MYSQL_USER=${TODO_LIST_DB_USER}
+      - MYSQL_PASSWORD=${TODO_LIST_DB_PASSWORD}
+      - MYSQL_DATABASE=${TODO_LIST_DB}
+    ports:
+    - "3306:3306"
