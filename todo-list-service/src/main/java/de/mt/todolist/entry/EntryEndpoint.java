@@ -1,6 +1,9 @@
-package de.mt.todolist.endpoint;
+package de.mt.todolist.entry;
 
 
+import de.mt.todolist.entity.ToDoEntry;
+
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -11,11 +14,14 @@ import java.util.List;
 @Path("/")
 @Consumes({"application/json"})
 @Produces({"application/json"})
-public class ToDoListEndpoint {
+public class EntryEndpoint {
+
+    @Inject
+    private EntryBean entryBean;
 
     @GET
     @Path("/entries")
-    public List<String> getEntries() {
-        return Arrays.asList("Katze füttern", "Gassi gehen");
+    public List<ToDoEntry> getEntries() {
+        return entryBean.getEntries();
     }
 }

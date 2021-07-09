@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {ToDoEntry} from "../../entity/ToDoEntry";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class TodoListService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public getEntries(): Observable<string[]> {
-    return this.httpClient.get<string[]>(`${this.serviceUrl}/entries`);
+  public getEntries(): Observable<ToDoEntry[]> {
+    return this.httpClient.get<ToDoEntry[]>(`${this.serviceUrl}/entries`);
   }
 }

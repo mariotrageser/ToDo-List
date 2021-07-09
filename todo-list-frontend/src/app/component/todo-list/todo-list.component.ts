@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoListService} from "../../service/todo-list/todo-list.service";
 import {EMPTY, Observable} from "rxjs";
+import {ToDoEntry} from "../../entity/ToDoEntry";
 
 @Component({
   selector: 'app-todo-list',
@@ -9,7 +10,7 @@ import {EMPTY, Observable} from "rxjs";
 })
 export class TodoListComponent implements OnInit {
 
-  entries$: Observable<string[]>
+  entries$: Observable<ToDoEntry[]>
 
   constructor(private todoListService: TodoListService) {
     this.entries$ = EMPTY
