@@ -27,3 +27,10 @@ services:
       - MYSQL_DATABASE=${TODO_LIST_DB}
     ports:
     - "3306:3306"
+  keycloak:
+    image: "quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}"
+    environment:
+      - KEYCLOAK_USER=${KEYCLOAK_USER}
+      - KEYCLOAK_PASSWORD=${KEYCLOAK_PASSWORD}
+    ports:
+    - "9080:8080"
