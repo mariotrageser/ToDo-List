@@ -7,11 +7,12 @@ import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
+import {AppRoutingModule} from './app-routing.module';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () => keycloak.init({
     config: {
-      url: 'http://localhost:8080/auth',
+      url: 'http://localhost:9080/auth',
       realm: 'master',
       clientId: 'todo-list'
     },
@@ -33,7 +34,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     BrowserAnimationsModule,
     HttpClientModule,
     MatCardModule,
-    KeycloakAngularModule
+    KeycloakAngularModule,
+    AppRoutingModule
   ],
   providers: [{
     provide: APP_INITIALIZER,
