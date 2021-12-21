@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoListService} from "../../service/todo-list/todo-list.service";
 import {EMPTY, Observable} from "rxjs";
-import {ToDoEntry} from "../../entity/ToDoEntry";
+import {ToDoEntry} from "../../entry/ToDoEntry";
 
 @Component({
   selector: 'app-todo-list',
