@@ -4,6 +4,7 @@ services:
     build: ../todo-list-frontend
     links:
       - todo-list-service
+      - keycloak
     ports:
       - "80:80"
   todo-list-service:
