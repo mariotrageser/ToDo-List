@@ -8,14 +8,17 @@ services:
     ports:
       - "80:80"
   todo-list-service:
-    build: ../todo-list-service
-    environment:
-      - MYSQL_VERSION
-      - TODO_LIST_DB_USER
-      - TODO_LIST_DB_PASSWORD
-      - TODO_LIST_DB
+    build:
+      context: ../todo-list-service
+      args:
+        - MYSQL_VERSION
+        - TODO_LIST_DB_USER
+        - TODO_LIST_DB_PASSWORD
+        - TODO_LIST_DB_NAME
+        - KEYCLOAK_VERSION
     links:
       - todo-list-db
+      - keycloak
     ports:
     - "8080:8080"
     - "9990:9990"
@@ -25,7 +28,7 @@ services:
       - MYSQL_ROOT_PASSWORD=${TODO_LIST_DB_ROOT_PASSWORD}
       - MYSQL_USER=${TODO_LIST_DB_USER}
       - MYSQL_PASSWORD=${TODO_LIST_DB_PASSWORD}
-      - MYSQL_DATABASE=${TODO_LIST_DB}
+      - MYSQL_DATABASE=${TODO_LIST_DB_NAME}
     ports:
     - "3306:3306"
   keycloak:
