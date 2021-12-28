@@ -36,5 +36,8 @@ services:
     environment:
       - KEYCLOAK_USER=${KEYCLOAK_USER}
       - KEYCLOAK_PASSWORD=${KEYCLOAK_PASSWORD}
+      - KEYCLOAK_IMPORT=/assets/realm-export.json
+    volumes:
+      - ./assets/realm-export.json:/assets/realm-export.json
     ports:
     - "8080:8080"
