@@ -1,7 +1,5 @@
 package de.mt.todolist.entry;
 
-import de.mt.todolist.entity.ToDoEntry;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;

@@ -20,7 +20,7 @@ services:
       - todo-list-db
       - keycloak
     ports:
-    - "8080:8080"
+    - "9080:8080"
     - "9990:9990"
   todo-list-db:
     image: "mysql:${MYSQL_VERSION}"
@@ -37,4 +37,4 @@ services:
       - KEYCLOAK_USER=${KEYCLOAK_USER}
       - KEYCLOAK_PASSWORD=${KEYCLOAK_PASSWORD}
     ports:
-    - "9080:8080"
+    - "8080:8080"

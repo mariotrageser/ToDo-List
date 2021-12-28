@@ -1,4 +1,4 @@
-package de.mt.todolist.entity;
+package de.mt.todolist.entry;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

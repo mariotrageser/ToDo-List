@@ -1,5 +1,5 @@
 {
-  "realm": "master",
+  "realm": "todo-list",
   "auth-server-url": "http://keycloak:8080/auth/",
   "ssl-required": "none",
   "resource": "todo-list",

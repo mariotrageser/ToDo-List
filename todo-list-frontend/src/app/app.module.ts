@@ -12,8 +12,8 @@ import {AppRoutingModule} from './app-routing.module';
 function initializeKeycloak(keycloak: KeycloakService) {
   return () => keycloak.init({
     config: {
-      url: 'http://localhost:9080/auth',
-      realm: 'master',
+      url: 'http://keycloak:8080/auth',
+      realm: 'todo-list',
       clientId: 'todo-list'
     },
     initOptions: {
